@@ -8,6 +8,7 @@ import './main.css'
 import Account from './pages/Account.tsx';
 import Employee from './pages/Employee.tsx';
 import Clients from './pages/Clients.tsx';
+import Shift from './pages/Shift.tsx';
 // import { store } from './stores/store'
 // import { Provider } from 'react-redux'
 
@@ -21,6 +22,7 @@ createRoot(document.getElementById('root')!).render(
             <Route path='/account' element={<Account />} />
             <Route path='/employee' element={<Employee />} />
             <Route path='/clients' element={<Clients />} />
+            <Route path='/shifts' element={<Shift />} />
           </Route>
         </Routes>
       </BrowserRouter>

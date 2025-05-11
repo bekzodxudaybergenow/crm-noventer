@@ -24,7 +24,6 @@ export default function Employee() {
         },
     });
     setCompanyBranch(res.data.branches);
-    console.log(res.data.branches);
    }
   
   const getEmployee = async (id: string) => {
@@ -35,7 +34,6 @@ export default function Employee() {
         }
     });
     setEmployee(res.data.results);
-    console.log(res.data.results)
 }
       
   useEffect(() => {
@@ -43,7 +41,6 @@ export default function Employee() {
   }, []);
 
   const handleChange = (value: string) => {
-    console.log(`${value}`);
     getEmployee(value)
   };
   
@@ -64,7 +61,7 @@ export default function Employee() {
           }
         />
     </Space>
-    <div className="grid grid-cols-4 gap-4">
+    <div className="grid grid-cols-4 w-auto gap-4">
       {
         employees.map((employee: Employee) => {
           return (

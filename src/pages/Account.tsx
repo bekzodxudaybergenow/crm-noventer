@@ -15,7 +15,6 @@ export default function Account() {
             }
         });
         setAccountInfo(res.data);
-        console.log(res.data);
     }
 
     const getCompany = async () => {
@@ -56,7 +55,7 @@ export default function Account() {
             </div>
             <img className="w-full mb-4" src={bg} alt="" />
         </div>
-        <div className="grid grid-cols-2 bg-white/10 backdrop-blur-sm shadow-2xl h-[315px]  rounded-[10px] p-10 text-white">
+        <div className="grid grid-cols-2 bg-white/10 backdrop-blur-sm shadow-2xl rounded-[10px] p-10 text-white">
             <div>
                 <h2 className="font-bold text-2xl mb-5">Rahbar haqida</h2>
                 {
