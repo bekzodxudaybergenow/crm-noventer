@@ -1,7 +1,16 @@
 @import "tailwindcss";
  /* #0E041D  bg-color */
- /* #5A00DB  main-color*/
+ /* #5A00DB  main-color */
+ /* bg-white/30 backdrop-blur-sm  */
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #f5f7fa;
+}
+.background-line {
+  background: linear-gradient(180deg, #17153B, #610094 99%);
+}
+.ant-form-item-label > label {
+  color: white !important;
+  /* color: #17153B; */
+  /* color: #5A00DB; */
 }

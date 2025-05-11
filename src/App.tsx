@@ -10,7 +10,7 @@ function App() {
 
   if(isAuth) {
     return (
-      <div className='flex'>
+      <div className='flex bg-[#17153B] h-[100vh]'>
         <Sidebar />
         {/* <Header /> */}
         <Outlet />

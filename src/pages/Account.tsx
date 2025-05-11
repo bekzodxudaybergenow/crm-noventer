@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { apiClient } from "../utils/ApiClient"
 import { Link } from "react-router-dom";
+import bg from '../../public/bg.png';
 
 export default function Account() {
     const [accountInfo, setAccountInfo] = useState<any>(null);
@@ -26,7 +27,6 @@ export default function Account() {
             },
         });
         setComponyInfo(res.data);
-        console.log(res.data);
     }
     useEffect(() => {
         getAcount();
@@ -46,37 +46,48 @@ export default function Account() {
 
 
   return (
-    <div className="grid grid-cols-2 pt-25 pl-20">
-        <div>
-            <h2 className="font-bold text-2xl mb-5">Rahbar haqida</h2>
-            {
-                accountInfo ? (
-                    <ul className="grid gap-y-3">
-
-                        <li><b>Ismi: </b>{accountInfo.full_name}</li>
-                        <li><b>Tug'ulgan sana: </b>{accountInfo.birth_date}</li>
-                        <li><b>Jinsi: </b>{accountInfo.gender}</li>
-                        <li><b>Email: </b>{accountInfo.email}</li>
-                    </ul>
-                )
-                : (<p>Yuklanmoqda...</p>)
-            }
+    <div className="m-4">
+        <div className="relative shadow">
+            <div className="absolute top-10 left-4">
+                <h2 className="font-black text-[50px] text-white ">{accountInfo?.full_name}</h2>
+                <span className="text-gray-50 font-[500]">{
+                accountInfo?.role == 'director' ? 'Rahbar' : accountInfo?.role
+                }</span>
+            </div>
+            <img className="w-full mb-4" src={bg} alt="" />
         </div>
-        <div>
-            <h2 className="font-bold text-2xl mb-5">Kompaniya haqida</h2>
-            {
-                companytInfo ? (
-                    <ul className="grid gap-y-3">
-                        <li><b>Kompaniya nomi: </b>{companytInfo.name}</li>
-                        <li><b>INN: </b>{companytInfo.stir}</li>
-                        <li><b>Ro'yxatdan o'tgan sana: </b>{companytInfo.created_at}</li>
-                        <li>
-                            Litsenziya: <Link to="#" onClick={handleDownload} className=" hover:text-blue-700 duration-300  underline decoration-solid">PDF ni yuklab olish</Link>
-                        </li>
-                    </ul>
-                )
-                : (<p>Yuklanmoqda...</p>)
-            }
+        <div className="grid grid-cols-2 bg-white/10 backdrop-blur-sm shadow-2xl h-[315px]  rounded-[10px] p-10 text-white">
+            <div>
+                <h2 className="font-bold text-2xl mb-5">Rahbar haqida</h2>
+                {
+                    accountInfo ? (
+                        <ul className="grid gap-y-3">
+
+                            <li><b className="text-[#777777]">Ismi: </b>{accountInfo.full_name}</li>
+                            <li><b className="text-[#777777]">Tug'ulgan sana: </b>{accountInfo.birth_date}</li>
+                            <li><b className="text-[#777777]">Jinsi: </b>{accountInfo.gender}</li>
+                            <li><b className="text-[#777777]">Email: </b>{accountInfo.email}</li>
+                        </ul>
+                    )
+                    : (<p>Yuklanmoqda...</p>)
+                }
+            </div>
+            <div>
+                <h2 className="font-bold text-2xl mb-5">Kompaniya haqida</h2>
+                {
+                    companytInfo ? (
+                        <ul className="grid gap-y-3">
+                            <li><b className="text-[#777777]">Kompaniya nomi: </b>{companytInfo.name}</li>
+                            <li><b className="text-[#777777]">INN: </b>{companytInfo.stir}</li>
+                            <li><b className="text-[#777777]">Ro'yxatdan o'tgan sana: </b>{companytInfo.created_at}</li>
+                            <li>
+                                <b className="text-[#777777]">Litsenziya: </b><Link to="#" onClick={handleDownload} className=" hover:text-blue-700 duration-300  underline decoration-solid">PDF ni yuklab olish</Link>
+                            </li>
+                        </ul>
+                    )
+                    : (<p>Yuklanmoqda...</p>)
+                }
+            </div>
         </div>
     </div>
   )
